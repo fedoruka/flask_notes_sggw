@@ -29,6 +29,11 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
+@app.route('/')
+def landing():
+    return render_template('landing.html')
+
+
 @app.route('/notes', methods=['POST', 'GET'])
 @login_required
 def handle_notes():
