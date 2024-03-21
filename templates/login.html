@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-4"></div>
+
+    <div class="col-4">
+
+        <h2>Login</h2>
+        <form action="/login" method="post">
+
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">
+                    Username:
+                </label>
+                <input name="username" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your username">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">
+                    Password:
+                </label>
+                <input name="password" type="password" class="form-control" id="exampleFormControlInput2" placeholder="Your password">
+            </div>
+
+            <p>Don't have an account? <a href="{{ url_for('register') }}"> Sign Up!</a></p>
+
+            <button type="submit" class="btn btn-success">Login</button>
+        </form>
+    </div>
+
+    <div class="col-4"></div>
+</div>
+{% endblock %}

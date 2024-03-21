@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+
+        <div class="row">
+            {% for note in notes %}
+                <div class="col-3 note-preview-card-column">
+                    <div class="card note-preview-card">
+                        <!-- <img src="..." class="card-img-top" alt="..."> -->
+                        <div class="card-body">
+                            <h5 class="card-title">Note title</h5>
+                            <p class="card-text">
+                                {{ note.content[:50] }}
+                            </p>
+                            <a href="#" class="btn btn-primary">Open</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="col-md-4 col-xs-12">
+        <h2>Add new note</h2>
+
+
+        <form action="/notes" method="post">
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">
+                    Note text:
+                </label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
+              </div>
+            
+              <button type="submit" class="btn btn-success">Create a note</button>
+        </form>
+
+    </div>
+
+
+</div>
+{% endblock %}

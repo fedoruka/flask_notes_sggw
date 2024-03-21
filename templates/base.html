@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Notes App </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">The Notes App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% if user_name %}
+                        <h2>Your notes, {{ user_name }}</h2>
+                    {% endif %}
+                </ul>
+                
+                <div class="d-flex" role="search"></div>
+                    {% if user_name %}
+                        <a type="button" class="btn btn-outline-danger" href="{{ url_for('logout') }}">Logout</a>
+                    {% else %}
+                        <a type="button" class="btn btn-outline-primary" href="{{ url_for('login') }}">Sign In</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+            {% block content %}
+                <h1>Not found</h1>
+            {% endblock %}
+    </div>
+
+    <p> 2024 - all rights reserved. </p>
+</body>
+
+</html>
